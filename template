@@ -1,0 +1,29 @@
+import discord
+import random
+
+# Replace 'x' with bot token.
+
+TOKEN = 'x'
+intents = discord.Intents.all()
+
+client = discord.Client(intents=intents)
+
+@client.event
+async def on_ready():
+    print('Bot is ready!')
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+# Replace 'y' with the message the bot will respond to.
+# Between the square brackets, replace 'z' with one or more phrases that the bot will answer randomly.
+
+    if message.content.startswith('!y'):
+        requests = [
+            "z",
+        ]
+        await message.channel.send(random.choice(requests))
+
+client.run(TOKEN)
